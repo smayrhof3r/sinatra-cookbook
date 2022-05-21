@@ -1,0 +1,8 @@
+
+.dropdown-item a{
+  color: black !important;
+}
+
+.dropdown-menu {
+  min-width: 7rem;
+}

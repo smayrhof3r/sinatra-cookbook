@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box !important;
+    margin: 0 0;
+}
+body {
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    align-content: stretch;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+
+.nav {
+    flex: 0 0 50px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.banner-box {
+    flex: 0 0 25vh;
+    width: 100%;
+}
+
+.main-box {
+    margin: 2px 0;
+    flex: 1 0 auto;
+    width: 100%;
+
+    display: flex;
+    flex-flow: nowrap;
+    align-items: stretch;
+}
+
+.ads-box {
+    flex: 0 0 40px;
+    width: 100%;
+    position: sticky;
+    bottom: 30px;
+}
+
+.footer-box{
+    margin: 2px 0 0 0;
+    flex: 0 0 30px;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+}
+
+.posts {
+    width: 100%;
+}
+
+.post {
+    margin: 20px 20vw;
+    min-height: 100px;
+    height: 30vh;
+}

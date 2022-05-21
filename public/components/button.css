@@ -1,0 +1,31 @@
+.btn-medium{
+	border: 1px solid #BFBDBD;
+	border-radius: 10px;
+	padding: 10px 15px;
+	opacity: 0.8;
+	font-weight: lighter; 
+	color: #BFBDBD;
+	text-decoration: none;
+}
+.btn-medium:hover {
+	opacity:  1;
+	text-decoration: none;
+	color: #BFBDBD;
+}
+.btn-twitter{
+	/*border:  1px transparent #FFFFFF;*/
+	border-radius: 5px;
+	background-color: #0F9AFB;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding:  10px 15px;
+	min-width: 40px;
+	opacity: 0.8;
+	text-decoration: none;
+}
+.btn-twitter:hover {
+	/*border:  1px transparent #FFFFFF;*/
+	color: #FFFFFF;
+	opacity: 1.0;
+	text-decoration: none;
+}

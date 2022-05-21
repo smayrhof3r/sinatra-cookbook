@@ -1,0 +1,45 @@
+  .nav {
+    background-color: rgb(2, 48, 71);
+    display: flex;
+    align-items: center;
+    color: rgb(251, 133, 0);
+
+  }
+
+  .nav li {
+    padding: 18px;
+  }
+
+  .nav li:hover {
+    background-color: rgb(18, 103, 130);
+  }
+
+  .nav li.active {
+    border: 1px solid rgb(18, 103, 130);
+  }
+
+  .nav a {
+    text-decoration: none;
+    color:  rgb(251, 133, 0);
+  }
+
+  .nav a:hover {
+        text-decoration: none;
+        color: rgb(251, 133, 0);
+  }
+
+  .nav-list {
+    align-items: center;
+  }
+  .nav-list li {
+    display: inline;
+    list-style-type: none;
+    padding: 10px;
+    color: rgb(251, 133, 0);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .nav {
+      font-size: 3.5vw;
+    }
+  }

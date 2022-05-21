@@ -1,0 +1,39 @@
+.banner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(180deg,
+								 rgba(0,0,0, 1) 0%,
+								 rgba(32, 22, 22, 0) 100%),
+								url("../images/banner.jpg");
+	background-size: cover;
+	/*justify-content: space-around;
+	align-items: center; */
+	height: 25vh;
+  min-height: 20vw;
+	position: relative
+}
+
+.banner h1 {
+	font-size: 10vw;
+	color: rgb(240,240,240);
+	letter-spacing: 5px;
+}
+
+.banner p {
+	font-size: 2vw;
+	letter-spacing: 2px;
+	color: rgb(200,200,200);
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: rgb(2, 48, 71);
+  margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .banner h1 {
+    font-size: 10vw;
+  }
+}
