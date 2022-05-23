@@ -1,0 +1,49 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+	align-items: center;
+	justify-content: center;
+  background-color: none;
+  color: rgb(2, 48, 71);
+  text-align: center;
+}
+
+ul.menu {
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+}
+
+li.menu {
+  flex: 1 0 auto;
+  padding: 21px;
+  text-align: center;
+  font-size: 2vw;
+  color: rgb(2, 48, 71);
+}
+
+.menu li:hover {
+  background-color: rgb(18, 103, 130);
+  color: rgb(255,255,255);
+}
+
+.menu li:hover a {
+  background-color: rgb(18, 103, 130);
+  color: rgb(255,255,255);
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgb(2, 48, 71);
+}
+
+.menu a:hover {
+  color: rgb(255,255,255);
+  /*color:  rgb(2, 48, 71);*/
+}
+
+@media only screen and (max-width: 600px) {
+  .menu {
+    font-size: 3.5vw;
+  }
+}

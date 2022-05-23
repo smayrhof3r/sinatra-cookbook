@@ -16,9 +16,10 @@ get "/about" do
   erb :about
 end
 
-get "/team/:username" do
-  puts params[:username]
-  "The username is #{params[:username]}"
+get "/action/:action" do
+  binding.pry
+  @useraction = params[:action]
+  erb :index
 end
 
 get "/search" do

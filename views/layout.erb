@@ -13,26 +13,29 @@
   <body>
     <section class="nav">
        <ul class="list-inline nav-list">
-           <li class = "active"><a href ="#" target = "_self">COOKBOOK</a></li>
+           <li><a href =".\" target = "_self">COOKBOOK</a></li>
            <li><a href =".\about" target = "_self">ABOUT ME</a></li>
            <li><a href = "https://github.com/smayrhof3r">MY GITHUB</a></li>
        </ul>
     </section>
     <section class="banner-box">
         <section class = "banner">
-             <h1>_Cookbook_</h1>
+             <h1>My Cookbook</h1>
              <p>...a first attempt at Sinatra </p>
         </section>
     </section>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <%= yield %>
-        </div>
-      </div>
-    </div>
-
-
+    <section class="menu-box">
+        <ul class = "menu">
+          <li><a href ="\action\list" target = "_self">List Recipes</a></li>
+          <li><a href ="\action\create" target = "_self">Create Recipe</a></li>
+          <li><a href ="\action\import" target = "_self">Import Recipe</a></li>
+          <li><a href ="\action\delete" target = "_self">Delete Recipe</a></li>
+          <li><a href ="\action\markdone" target = "_self">Mark Recipe 'Done'</a></li>
+        </ul>
+    </section>
+    <section class = "content">
+      <%= yield %>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="/application.js"></script>
   </body>
