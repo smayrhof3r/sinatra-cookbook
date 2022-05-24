@@ -14,7 +14,7 @@ ul.menu {
   margin: 5px;
 }
 
-li.menu {
+ul.menu li {
   flex: 1 0 auto;
   padding: 21px;
   text-align: center;
