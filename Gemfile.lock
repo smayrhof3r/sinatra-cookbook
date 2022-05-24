@@ -26,6 +26,7 @@ GEM
     rack (2.2.3)
     rack-protection (2.2.0)
       rack
+    require_all (3.0.0)
     ruby2_keywords (0.0.5)
     sinatra (2.2.0)
       mustermann (~> 1.0)
@@ -51,6 +52,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   pry-byebug
+  require_all
   sinatra
   sinatra-contrib
   thin

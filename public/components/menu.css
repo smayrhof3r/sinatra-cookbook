@@ -20,6 +20,8 @@ li.menu {
   text-align: center;
   font-size: 2vw;
   color: rgb(2, 48, 71);
+  padding: 5px;
+  margin: 5px;
 }
 
 .menu li:hover {

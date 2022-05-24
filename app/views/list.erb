@@ -1,0 +1,14 @@
+<h1>All Recipes</h1>
+<% @recipes.each.with_index do |recipe, i| %>
+  <section class = "recipe-card">
+  <%= "#{recipe.done ? "✅" : "◻️ "} " %>
+  <%= "#{i+1}: #{recipe.name}#{" "*4}" %>
+  <%= recipe.rating ? "  #{"💗" * recipe.rating.to_i}#{"🤍" * (5-recipe.rating.to_i)}#{" "*4}  " : "  unrated  " %>
+  <%= "#{recipe.prep_time}".ljust(10) %>
+  <br>
+  <section class = "recipe-card-description">
+  <%= "'#{recipe.description}...'".ljust(25) %>
+  <%= "" %>
+  </section>
+  </section>
+<% end %>
