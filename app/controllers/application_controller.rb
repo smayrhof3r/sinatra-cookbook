@@ -24,16 +24,28 @@ class ApplicationController < Sinatra::Base
   # end
 
   get '/' do
-    # csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    # @@cookbook = Cookbook.new(csv)
-   erb :index
+    erb :index
   end
 
   get '/action/list' do
     csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    #cookbook = Cookbook.new(csv)
     @recipes = Cookbook.new(csv).recipes
     erb :list
+  end
+
+  get '/action/create' do
+    erb :create
+  end
+
+  post '/action/newrecipe' do
+    name = params[:name]
+    rating = params[:rating]
+    prep_time = params[:prep_time]
+    description = params[:description]
+    recipe = Recipe.new(name, description, rating, prep_time)
+    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
+    Cookbook.new(csv).add_recipe(recipe)
+    redirect '/action/list'
   end
 end
 

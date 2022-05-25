@@ -1,0 +1,23 @@
+
+.form-recipe-element {
+  display: flex;
+  width: 90vw;
+}
+
+label.form-recipe-element {
+  flex: 0 0 10vw;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  font-size: 3vw;
+}
+
+input.form-recipe-element {
+  flex: 0 1 auto;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  font-size: 3vw;
+}
+
+.form-recipe-button {
+  align-items: center;
+}
