@@ -37,6 +37,12 @@ class ApplicationController < Sinatra::Base
     erb :create
   end
 
+  get '/action/delete' do
+    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
+    @recipes = Cookbook.new(csv).recipes
+    erb :delete
+  end
+
   post '/action/newrecipe' do
     name = params[:name]
     rating = params[:rating]
@@ -47,7 +53,15 @@ class ApplicationController < Sinatra::Base
     Cookbook.new(csv).add_recipe(recipe)
     redirect '/action/list'
   end
+
+  post '/action/deleterecipe' do
+    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
+    Cookbook.new(csv).remove_recipe(params[:id].to_i - 1)
+    redirect '/action/list'
+  end
 end
+
+
 
   # def create(recipe_details = nil)
   #   recipe_details ||= @view.request_recipe_details
