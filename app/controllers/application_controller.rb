@@ -24,12 +24,18 @@ class ApplicationController < Sinatra::Base
   # end
 
   get '/' do
+    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
+    @@cookbook = Cookbook.new(csv)
     erb :index
+  end
+
+  get '/about' do
+    erb :about
   end
 
   get '/action/list' do
     csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    @recipes = Cookbook.new(csv).recipes
+    @recipes = @@cookbook.recipes
     erb :list
   end
 
@@ -39,14 +45,33 @@ class ApplicationController < Sinatra::Base
 
   get '/action/delete' do
     csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    @recipes = Cookbook.new(csv).recipes
+    @recipes = @@cookbook.recipes
     erb :delete
   end
 
   get '/action/markdone' do
     csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    @recipes = Cookbook.new(csv).recipes
+    @recipes = @@cookbook.recipes
     erb :markdone
+  end
+
+  get '/action/import' do
+    @request_keyword = true
+    erb :import
+  end
+
+  post '/action/importrecipe' do
+    @request_id_to_import = true
+    @@web_recipes = WebRecipe.new.load_recipes(params[:keyword])
+    @recipes = @@web_recipes
+    @dont_show_ticks = true
+    erb :import
+  end
+
+  post '/action/createwebrecipe' do
+    recipe = @@web_recipes[params[:id].to_i - 1]
+    @@cookbook.add_recipe(recipe)
+    redirect '/action/list'
   end
 
   post '/action/newrecipe' do
@@ -55,25 +80,21 @@ class ApplicationController < Sinatra::Base
     prep_time = params[:prep_time]
     description = params[:description]
     recipe = Recipe.new(name, description, rating, prep_time)
-    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    Cookbook.new(csv).add_recipe(recipe)
+    @@cookbook.add_recipe(recipe)
     redirect '/action/list'
   end
 
   post '/action/deleterecipe' do
-    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    Cookbook.new(csv).remove_recipe(params[:id].to_i - 1)
+    @@cookbook.remove_recipe(params[:id].to_i - 1)
     redirect '/action/list'
   end
 
   post '/action/updaterecipe' do
-    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
-    cookbook = Cookbook.new(csv)
-    @recipes = cookbook.all
+    @recipes = @@cookbook.all
     @recipes.each_with_index do |recipe, id|
       recipe.done = params[id.to_s] == "true"
     end
-    cookbook.update_all(@recipes)
+    @@cookbook.update_all(@recipes)
     redirect '/action/list'
   end
 end

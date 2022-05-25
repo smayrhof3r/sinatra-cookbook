@@ -1,7 +1,7 @@
-<h1>All Recipes</h1>
+<h1>Recipes</h1>
 <% @recipes.each.with_index do |recipe, i| %>
   <section class = "recipe-card">
-  <%= "#{recipe.done ? "✅" : "◻️ "} " %>
+  <%= "#{recipe.done ? "✅" : "◻️ "} " unless @dont_show_ticks%>
   <%= "#{i+1}: #{recipe.name}#{" "*4}" %>
   <%= recipe.rating ? "  #{"💗" * recipe.rating.to_i}#{"🤍" * (5-recipe.rating.to_i)}#{" "*4}  " : "  unrated  " %>
   <%= "#{recipe.prep_time}".ljust(10) %>
