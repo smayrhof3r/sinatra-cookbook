@@ -43,6 +43,12 @@ class ApplicationController < Sinatra::Base
     erb :delete
   end
 
+  get '/action/markdone' do
+    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
+    @recipes = Cookbook.new(csv).recipes
+    erb :markdone
+  end
+
   post '/action/newrecipe' do
     name = params[:name]
     rating = params[:rating]
@@ -57,6 +63,17 @@ class ApplicationController < Sinatra::Base
   post '/action/deleterecipe' do
     csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
     Cookbook.new(csv).remove_recipe(params[:id].to_i - 1)
+    redirect '/action/list'
+  end
+
+  post '/action/updaterecipe' do
+    csv = '/home/sheila/code/smayrhof3r/sinatra-cookbook/app/models/recipes.csv'
+    cookbook = Cookbook.new(csv)
+    @recipes = cookbook.all
+    @recipes.each_with_index do |recipe, id|
+      recipe.done = params[id.to_s] == "true"
+    end
+    cookbook.update_all(@recipes)
     redirect '/action/list'
   end
 end

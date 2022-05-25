@@ -1,0 +1,15 @@
+<form method = 'POST' action="/action/updaterecipe">
+  <% @recipes.each.with_index do |recipe, i| %>
+    <section>
+    <% if recipe.done %>
+      <input class = "recipe-checkbox" type="checkbox" id= <%= i.to_s %> value = true name=<%= i.to_s %> checked >
+    <% else %>
+      <input class = "recipe-checkbox" type="checkbox" id= <%= i.to_s %> value = true name=<%= i.to_s %> >
+    <% end %>
+    <%= "#{i+1}: #{recipe.name}#{" "*4}" %><br>
+    </section>
+  <% end %>
+  <section class = "section-form-button">
+      <input class = "form-button" type="submit" value="Update">
+    </section>
+</form>

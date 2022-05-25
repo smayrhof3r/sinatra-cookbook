@@ -28,6 +28,11 @@ class Cookbook
     update_file
   end
 
+  def update_all(recipes)
+    @recipes = recipes
+    update_file
+  end
+
   private
 
   def read_from_file

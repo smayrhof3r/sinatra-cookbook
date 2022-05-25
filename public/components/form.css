@@ -21,3 +21,21 @@ input.form-recipe-element {
 .form-recipe-button {
   align-items: center;
 }
+
+.recipe-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.form-button {
+  background-color: rgb(2, 48, 71);;
+  color: rgb(251, 133, 0);
+  border: none;
+  border-radius: 9px;
+  padding: 7px 21px;
+}
+
+.section-form-button {
+    padding: 0px 21px;
+    text-align: center;
+}
